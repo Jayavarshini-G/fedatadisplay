@@ -1,0 +1,110 @@
+<!-- 
+<div>
+  <label>Select Columns:</label>
+  <div *ngFor="let column of displayedColumns">
+    <input type="checkbox" [(ngModel)]="selectedColumns[column]" /> {{ column }}
+  </div>
+</div>
+
+<table>
+  <tr>
+    <th *ngFor="let column of displayedColumns" [hidden]="!selectedColumns[column]">{{ column }}</th>
+  </tr>
+  <tr *ngFor="let row of getDisplayedRows()">
+    <td *ngFor="let column of displayedColumns" [hidden]="!selectedColumns[column]">{{ row[column] }}</td>
+  </tr>
+</table>
+
+<button (click)="showNextRows()">Show Next {{ rowsToAdd }} Rows</button>
+
+
+   -->
+
+
+
+
+
+
+
+
+
+  
+
+
+  <!-- <table>
+    <tr>
+      <th *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ column }}</th>
+    </tr>
+    <tr *ngFor="let row of getDisplayedRows()">
+      <td *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ row[column] }}</td>
+    </tr>
+  </table>
+  
+  <button (click)="showNextRowsBatch()">Show Next {{ rowsPerBatch }} Rows</button>
+  <button (click)="showNextColumns()">Show Next {{ rowsPerBatch }} Columns</button> -->
+
+
+
+<!-- 
+  <div>
+    <label>Select Columns:</label>
+    <div>
+      <label *ngFor="let column of displayedColumns">
+        <input type="checkbox" [(ngModel)]="selectedColumns[column]" (change)="updateDisplayedColumns()" />
+        {{ column }}
+      </label>
+    </div>
+  </div>
+  
+  <table>
+    <tr>
+      <th *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ column }}</th>
+    </tr>
+    <tr *ngFor="let row of getDisplayedRows()">
+      <td *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ row[column] }}</td>
+    </tr>
+  </table>
+  
+  <button (click)="showNextRowsBatch()">Show Next {{ rowsPerBatch }} Rows</button>
+  <button (click)="showNextColumnsBatch()">Show Next {{ columnsPerBatch }} Columns</button> -->
+
+
+
+  
+  
+  <div class="toggle-buttons">
+    <div class="toggle-button">
+      <input type="checkbox" id="toggle-columns" (change)="toggleColumnCheckboxes()" />
+      <label for="toggle-columns">
+        <i class="fas fa-toggle-off" *ngIf="!showColumnCheckboxes"></i>
+        <i class="fas fa-toggle-on" *ngIf="showColumnCheckboxes"></i>
+      </label>
+      Toggle Columns
+    </div>
+  </div>
+  
+  <div class="column-checkboxes" *ngIf="showColumnCheckboxes">
+    <label>Select Columns:</label>
+    <ng-container *ngFor="let column of columnsDropdown">
+      <div class="toggle-button">
+        <input type="checkbox" [(ngModel)]="selectedColumns[column]" />
+        {{ column }}
+      </div>
+    </ng-container>
+  </div>
+  
+  <table>
+    <tr>
+      <th *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ column }}</th>
+    </tr>
+    <tr *ngFor="let row of getDisplayedRows()">
+      <td *ngFor="let column of getDisplayedColumns()" [hidden]="!selectedColumns[column]">{{ row[column] }}</td>
+    </tr>
+  </table>
+  
+  <button (click)="showNextRowsBatch()">Show Next {{ rowsPerBatch }} Rows</button>
+  <button (click)="showNextColumnsBatch()">Show Next {{ columnsPerBatch }} Columns</button>
+  
+  
+  
+  
